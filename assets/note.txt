@@ -1,0 +1,26 @@
+jika yang diinput adalah angka {
+  cek apakah operator sudah diset 
+  if(isOperatorSet) {
+    masukkan ke LastNum 
+  } else {
+    cek apakah firstNum === 0 {
+      jika iya timpa firstNum 
+      jika tidak tambahkan ke firstNum 
+      updateMainDisplay 
+    }
+  }
+}
+
+jika yang di input adalah operator {
+  cek apakah firstNum == 0 {
+    jika iya return false
+    jika tidak 
+    masukkan ke operator
+    isOperatorSet = true
+    updateMainDisplay
+  }
+}
+
+jika yang diinput samaDengan 
+if(lastNum === null) return false; 
+reset firstNum, LastNum, operator menjadi null
