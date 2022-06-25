@@ -10,25 +10,22 @@ body {
   padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .container {
   padding: 16px;
-  height: 100vh;
+}
+
+.row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .flex-column {
   display: flex;
   flex-direction: column;
-  max-width: 480px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: right;
   border: 1px solid grey;
+  border-radius: 0.5rem;
 }
 
 .flex-row {
@@ -40,9 +37,6 @@ body {
   font-size: 1.5em;
   text-align: center;
   padding: 1.5rem 1rem;
-  /* padding: 40px; */
-  /* border: 1px solid black; */
-  /* background: -webkit-linear-gradient(top, #d2d2d2, #ddd); */
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
   font-weight: bold;
@@ -79,4 +73,39 @@ body {
 #second {
   color: grey;
   visibility: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 8px;
+}
+
+.col-calc {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  padding: 0 16px;
+}
+
+.col-history {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  padding: 0 16px;
+}
+
+@media (min-width: 832px) {
+  .row {
+    justify-content: start;
+  }
 }

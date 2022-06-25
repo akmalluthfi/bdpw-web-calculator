@@ -11,57 +11,88 @@
   </head>
   <body>
     <div class="container">
-      <div class="flex-column">
-        <div class="display">
-          <h3 id="second">0</h3>
-          <h1 id="main">0</h1>
-        </div>
-        <div class="flex-row">
-          <div class="button clear">CE</div>
-          <div class="button delete">
-            <i class="fa-solid fa-delete-left"></i>
+      <div class="row">
+        <section class="col-calc">
+          <div class="flex-column">
+            <div class="display">
+              <h3 id="second">0</h3>
+              <h1 id="main">0</h1>
+            </div>
+            <div class="flex-row">
+              <div class="button clear">CE</div>
+              <div class="button delete">
+                <i class="fa-solid fa-delete-left"></i>
+              </div>
+              <div class="button percent">
+                <i class="fa-solid fa-percent"></i>
+              </div>
+              <div class="button operator divide">
+                <i class="fa-solid fa-divide"></i>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="button num">7</div>
+              <div class="button num">8</div>
+              <div class="button num">9</div>
+              <div class="button operator multiplication">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="button num">4</div>
+              <div class="button num">5</div>
+              <div class="button num">6</div>
+              <div class="button operator subtraction">
+                <i class="fa-solid fa-minus"></i>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="button num">1</div>
+              <div class="button num">2</div>
+              <div class="button num">3</div>
+              <div class="button operator addition">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+            <div class="flex-row">
+              <div class="button plus-minus">
+                <i class="fa-solid fa-plus-minus"></i>
+              </div>
+              <div class="button num">0</div>
+              <div class="button comma">.</div>
+              <div class="button equals">
+                <i class="fa-solid fa-equals"></i>
+              </div>
+            </div>
           </div>
-          <div class="button percent">
-            <i class="fa-solid fa-percent"></i>
+        </section>
+        <section class="col-history">
+          <div class="history">
+            <h2>History</h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Calculate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>1</th>
+                  <td>2 + 4 = 10</td>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <td>2 + 4 = 10</td>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <td>2 + 4 = 10</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="button operator divide">
-            <i class="fa-solid fa-divide"></i>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="button num">7</div>
-          <div class="button num">8</div>
-          <div class="button num">9</div>
-          <div class="button operator multiplication">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="button num">4</div>
-          <div class="button num">5</div>
-          <div class="button num">6</div>
-          <div class="button operator subtraction">
-            <i class="fa-solid fa-minus"></i>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="button num">1</div>
-          <div class="button num">2</div>
-          <div class="button num">3</div>
-          <div class="button operator addition">
-            <i class="fa-solid fa-plus"></i>
-          </div>
-        </div>
-        <div class="flex-row">
-          <div class="button plus-minus">
-            <i class="fa-solid fa-plus-minus"></i>
-          </div>
-          <div class="button num">0</div>
-          <div class="button comma">.</div>
-          <div class="button equals">
-            <i class="fa-solid fa-equals"></i>
-          </div>
-        </div>
+        </section>
       </div>
     </div>
 
@@ -70,5 +101,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/script.js"></script>
+    <script src="./assets/storage.js"></script>
   </body>
 </html>
