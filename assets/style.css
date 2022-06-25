@@ -68,6 +68,7 @@ body {
 .display {
   border-bottom: 1px solid grey;
   padding: 0 16px;
+  text-align: end;
 }
 
 #second {
@@ -104,8 +105,13 @@ td {
   padding: 0 16px;
 }
 
+.history h2 {
+  margin: 0;
+}
+
 @media (min-width: 832px) {
   .row {
     justify-content: start;
+    align-items: flex-start;
   }
 }

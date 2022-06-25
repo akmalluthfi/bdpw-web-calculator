@@ -129,6 +129,10 @@ function performCalculate() {
   calculator.firstNum = calculator.result.toString();
   updateSecondDisplay();
 
+  // add history to localstorage
+  addHistory(calculator.secondContent);
+  renderHistory();
+
   // reset
   calculator.lastNum = null;
   calculator.operator = null;
