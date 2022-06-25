@@ -27,8 +27,19 @@ buttons.forEach((button) => {
     if (this.classList.contains('percent')) return handlePercent();
     // when comma button is clicked
     if (this.classList.contains('comma')) return handleComma();
+    // when toogle plus and minus is clicked
+    if (this.classList.contains('plus-minus')) return handlePlusMinus();
   });
 });
+
+function handlePlusMinus() {
+  if (calculator.lastNum !== null) {
+    calculator.lastNum = (calculator.lastNum / -1).toString();
+  } else if (calculator.firstNum !== null) {
+    calculator.firstNum = (calculator.firstNum / -1).toString();
+  }
+  updateMainDisplay();
+}
 
 function handleComma() {
   if (calculator.lastNum !== null) {
@@ -70,6 +81,7 @@ function handleDelete() {
       calculator.firstNum = null;
     } else {
       calculator.firstNum = calculator.firstNum.slice(0, -1);
+      if (calculator.firstNum === '0') calculator.firstNum = null;
     }
   } else {
     return;
