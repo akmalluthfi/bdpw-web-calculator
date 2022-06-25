@@ -23,19 +23,58 @@ buttons.forEach((button) => {
     if (this.classList.contains('clear')) return clearDisplay();
     // when the delete button is clicked
     if (this.classList.contains('delete')) return handleDelete();
+    // when percent button is clicked
+    if (this.classList.contains('percent')) return handlePercent();
+    // when comma button is clicked
+    if (this.classList.contains('comma')) return handleComma();
   });
 });
 
-function handleDelete() {
-  // cek apakah operator null atau tidak
-  if (calculator.operator === null) {
-    if (calculator.firstNum === null) return;
-    calculator.firstNum = calculator.firstNum.slice(0, -1);
+function handleComma() {
+  if (calculator.lastNum !== null) {
+    if (calculator.lastNum.slice('.').length > 1) return;
+    calculator.lastNum += '.';
+  } else if (calculator.result !== null) {
+    calculator.firstNum = '0.';
+    calculator.result = null;
+  } else if (calculator.firstNum !== null) {
+    if (calculator.firstNum.slice('.').length > 2) return;
+    calculator.firstNum += '.';
   } else {
-    calculator.lastNum = calculator.lastNum.slice(0, -1);
+    calculator.firstNum = '0.';
+  }
+  updateMainDisplay();
+}
+
+function handlePercent() {
+  if (calculator.lastNum !== null) {
+    calculator.lastNum = (calculator.lastNum / 100).toString();
+  } else if (calculator.firstNum !== null) {
+    calculator.firstNum = (calculator.firstNum / 100).toString();
+  }
+  updateMainDisplay();
+}
+
+function handleDelete() {
+  if (calculator.lastNum !== null) {
+    if (calculator.lastNum.length <= 1) {
+      calculator.lastNum = null;
+    } else {
+      calculator.lastNum = calculator.lastNum.slice(0, -1);
+    }
+  } else if (calculator.operator !== null) {
+    calculator.operator = null;
+    calculator.isOperatorSet = false;
+  } else if (calculator.firstNum !== null) {
+    if (calculator.firstNum.length <= 1) {
+      calculator.firstNum = null;
+    } else {
+      calculator.firstNum = calculator.firstNum.slice(0, -1);
+    }
+  } else {
+    return;
   }
 
-  if (calculator.firstNum.length === 0) calculator.firstNum = null;
   updateMainDisplay();
 }
 
@@ -61,14 +100,14 @@ function performCalculate() {
 
   if (calculator.operator === null) return;
 
-  if (calculator.lastNum == null) {
+  if (calculator.lastNum === null) {
     calculator.lastNum = '0';
     calculator.mainContent += calculator.lastNum;
   }
 
   // change string to float
   const first = parseFloat(calculator.firstNum);
-  const last = parseInt(calculator.lastNum);
+  const last = parseFloat(calculator.lastNum);
 
   if (calculator.operator === '+') calculator.result = first + last;
   if (calculator.operator === '-') calculator.result = first - last;
@@ -128,6 +167,7 @@ function handleNum(button) {
       calculator.result = null;
     } else {
       if (calculator.firstNum === null) {
+        if (button.innerText === '0') return;
         calculator.firstNum = button.innerText;
       } else {
         calculator.firstNum += button.innerText;
